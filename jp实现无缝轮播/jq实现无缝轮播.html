@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>jq实现无缝轮播</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0; 
+			list-style: none;
+		}
+		body{
+			background:#de0;
+		}
+		.banner{
+			margin: 100px auto;
+	  	    position: relative;
+	  	    overflow: hidden;
+	  	    height: 400px;
+	  	    width: 700px;
+		}
+		.imgs{
+			position: absolute;
+			width: 5000px;
+			left: 0;
+            top:0;
+		
+		}
+		.imgs li{
+			float: left;
+		}
+		.banner .num{
+	  	    width: 100%;
+	  	    position: absolute;
+	  	    bottom: 10px;
+	  	    text-align: center;
+	  	    left: 0;
+	  	    background: transparent;
+	  }
+		.num li{
+			cursor: pointer;
+			margin: 0 10px;
+			list-style: none;
+			display: inline-block;
+			background: #eee;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+		}
+		.num li.on{
+			background: #f60; 
+		}
+		.left,.right{
+			cursor: pointer;
+			position: absolute;
+			width:50px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			display: none;
+			background: rgba(0,0,0,0.5);
+			color:#fff;
+			top:49%;
+			margin: 0 10px;
+		}
+		.banner:hover .left{
+			display: block;
+		}
+		.banner:hover .right{
+			display: block;
+		}
+		.left{ left: 0; }
+		.right{right:0;}
+	</style>
+	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+	<script type="text/javascript" src="demo.js"></script>
+</head>
+<body>
+<div class="banner">
+	<ul class="imgs">
+		<li><a href="#"><img src="images/2.jpg"></a></li>
+		<li><a href="#"><img src="images/1.jpg"></a></li>
+		<li><a href="#"><img src="images/3.png"></a></li>
+		<li><a href="#"><img src="images/4.png"></a></li>
+	</ul>
+	<ul class="num">
+		<li></li><li></li><li></li><li></li>
+	</ul>
+    <div class="left">&lt</div>	
+    <div class="right">&gt</div>
+</div>
+
+</body>
+</html>
