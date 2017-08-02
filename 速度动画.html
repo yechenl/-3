@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>速度动画</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0; list-style: none; }
+		#div1{ display: inline-block; width: 200px; height: 200px; 
+		       position: relative; background: #ac1; left: -200px; top: 0;
+		       line-height: 200px; cursor: pointer; text-align: center; font-size: 20px;}
+		#share{ display: inline-block; width: 50px; left: 200px; height: 50px; position:absolute;
+			top: 50%; margin-top:-25px; background: #ca0; text-align: center; line-height: 50px;  font-size: 14px;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var div1=document.querySelector("#div1");
+			var share=document.querySelector("#share");
+			// console.log(div1);
+			div1.onmouseover=function(){
+				startMove(0);
+			}
+			div1.onmouseout=function(){
+				startMove(-200);
+			}
+		}	
+            var timer=null;
+			function startMove(iTarget){
+               clearInterval(timer);
+               var div1=document.querySelector("#div1");
+               timer = setInterval(function(){
+               	var speed=0;
+               	if(div1.offsetLeft>iTarget){
+					speed= -10;
+				}
+					else{
+					speed=10;
+				}
+
+               	if(div1.offsetLeft==iTarget){
+               		clearInterval(timer);
+               	}
+               	else{
+               		div1.style.left=div1.offsetLeft+speed+'px';
+               	}
+               },30)
+		}
+		
+	</script>
+</head>
+<body>
+<div id="div1">
+     are you ok?
+	<span id="share">
+		分享
+	</span>
+</div>
+</body>
+</html>
